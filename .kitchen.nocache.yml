@@ -1,0 +1,19 @@
+---
+driver:
+  name: vagrant
+  username: root
+  password: vagrant
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-7.2
+
+suites:
+  - name: default
+    run_list:
+      - recipe[tomcat::default]

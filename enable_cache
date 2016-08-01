@@ -1,0 +1,19 @@
+#!/bin/bash
+
+cache="${HOME}/.cache/chef-installer"
+cache_base="${cache##*/}"
+[ -d "$cache" ] || mkdir -pv "$cache"
+[ -L "$cache_base" ] || ln -sv "$cache" "./${cache_base}"
+
+rpm_url='https://packages.chef.io/stable/el/7/chef-12.12.15-1.el7.x86_64.rpm'
+rpm_shasum='92d14fa522ff14b1e22622312c8271db3cc0d512'
+rpm_base="${rpm_url##*/}"
+[ -e "${cache}/${rpm_base}" ] || wget "$rpm_url"
+sha1sum -c <<< "$rpm_shasum  ${cache}/${rpm_base}"
+
+cat > "${cache}/install.sh" << EOF
+#!/bin/sh
+sudo rpm -ivh /tmp/${rpm_base}
+EOF
+
+cp -v ./.kitchen.cache.yml ./.kitchen.yml

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo 'You may want to clean `~/.cache/chef-installer`:'
+echo '  $ rm -rf ~/.cache/chef-installer'
+cp -v ./.kitchen.nocache.yml ./.kitchen.yml
