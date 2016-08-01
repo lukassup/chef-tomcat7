@@ -1,4 +1,3 @@
-# tomcat
+# chef-tomcat7
 
-TODO: Enter the cookbook description here.
-
+Cookbook to setup Apache Tomcat 7 on an CentOS 7 host.

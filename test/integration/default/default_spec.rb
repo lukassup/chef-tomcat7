@@ -53,11 +53,11 @@ control 'test-ports' do
   describe port(8080) do
     it { should be_listening }
     its('processes') { should eq ['java'] }
-    its('protocols') { should eq ['tcp'] }  # fails, listents on tcp6 instead
+    its('protocols') { should eq ['tcp'] }
   end
   describe port(8009) do
     it { should be_listening }
     its('processes') { should eq ['java'] }
-    its('protocols') { should eq ['tcp'] }  # fails, listents on tcp6 instead
+    its('protocols') { should eq ['tcp'] }
   end
 end
