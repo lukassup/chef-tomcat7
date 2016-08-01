@@ -17,6 +17,10 @@ user 'tomcat' do
   shell '/bin/nologin'
 end
 
+template '/etc/tomcat/tomcat.conf' do
+  source 'tomcat.conf.erb'
+end
+
 service 'tomcat' do
   action [:enable, :start]
 end

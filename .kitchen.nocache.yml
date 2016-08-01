@@ -3,6 +3,8 @@ driver:
   name: vagrant
   username: root
   password: vagrant
+  network:
+    - ["forwarded_port", {guest: 8080, host: 8080}]
 
 provisioner:
   name: chef_zero

@@ -13,7 +13,7 @@ sha1sum -c <<< "$rpm_shasum  ${cache}/${rpm_base}"
 
 cat > "${cache}/install.sh" << EOF
 #!/bin/sh
-sudo rpm -ivh /tmp/${rpm_base}
+sudo rpm -ivh /tmp/chef-installer/${rpm_base}
 EOF
 
 cp -v ./.kitchen.cache.yml ./.kitchen.yml
