@@ -16,3 +16,7 @@ user 'tomcat' do
   manage_home false
   shell '/bin/nologin'
 end
+
+service 'tomcat' do
+  action [:enable, :start]
+end
